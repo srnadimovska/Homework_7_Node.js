@@ -54,45 +54,38 @@ const godisnoVreme = (req, res) => {
   const den = Number(req.body.den);
 
   let time;
-  switch (mesec) {
-    case 12:
-    case 1:
-    case 2:
+
+  if (mesec === 12 || mesec === 1 || mesec ===2) 
+    
       {
         time = "Zima";
         res.send(`Denes e ${den}.${mesec}.Godisnoto vreme e ${time}`);
       }
-      break;
-    case 3:
-    case 4:
-    case 5:
+      
+   else if (mesec === 3 || mesec === 4 || mesec === 5)
       {
         time = "Prolet";
         res.send(`Denes e ${den}.${mesec}.Godisnoto vreme e ${time}`);
       }
-      break;
-    case 6:
-    case 7:
-    case 8:
+      
+    else if (mesec === 6 || mesec === 7 || mesec === 8)
       {
         time = "Leto";
         res.send(`Denes e ${den}.${mesec}.Godisnoto vreme e ${time}`);
       }
-      break;
-    case 9:
-    case 10:
-    case 11:
+      
+    else if (mesec === 9 || mesec === 10 || mesec === 11)
       {
         time = "Esen";
         res.send(`Denes e ${den}.${mesec}.Godisnoto vreme e ${time}`);
       }
-      break;
+      
 
-    default: {
+    else {
       res.send(`Vnesete tocni podatoci za mesec!`);
     }
-  }
-};
+  };
+
 app.post("/godisnovreme", godisnoVreme);
 
 // Primer 4
@@ -129,6 +122,8 @@ const temperatura = (req,res) => {
         res.send (`Vnesi validni podatoci za temperatura!`);
      }};
      app.post('/temperatura' , temperatura);
+
+    
 
 app.listen(9001, (err) => {
   if (err) return console.log(err.message);
